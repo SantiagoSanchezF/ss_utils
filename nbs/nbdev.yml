@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "ss_utils"
+  site-url: "https://SantiagoSanchezF.github.io/ss_utils"
+  description: "utils"
+  repo-branch: main
+  repo-url: "https://github.com/SantiagoSanchezF/ss_utils"
