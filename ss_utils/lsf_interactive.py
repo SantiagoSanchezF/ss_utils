@@ -195,7 +195,7 @@ class LSF:
 
     def update(self,read_func=None):
         
-        chunk = [(j.bsub_args, j.job_name, j.output_file, j.args, j.job_id, j.stat, j.iteration, j.iter_lim, j.result, j.stderr, j.stdout, j.exit_code, j.read_func)
+        chunk = [(j.bsub_args, j.job_name, j.output_file, j.args, j.job_id, j.stat, j.iteration, j.iter_lim, j.result, j.stderr, j.stdout, j.exit_code, j.read_func if read_func==None else read_func )
                     for k,j in self.jobs.items() if j.stat!="done"]
         print(f"processing {len(chunk)} jobs")
         step = 0
