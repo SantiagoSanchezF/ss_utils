@@ -222,7 +222,9 @@ class LSF:
             step += 1
             del res
                 
-        print(Counter([job.stat for _,job in self.jobs.items()]))
+        summary = dict(Counter([job.stat for _,job in self.jobs.items()]))
+        print(summary)
+        return summary
 
     def clean(self):
         shutil.rmtree(self.bsub_args["output_dir"])
