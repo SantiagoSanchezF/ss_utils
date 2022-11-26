@@ -37,11 +37,12 @@ def sed_script(script,replace_array):
             for var,hard in replace_array:
                 line = re.sub(
                     var, 
-                    str(hard) if type(hard)!=str else f"'{hard}'",
+                    str(hard),
+                    # str(hard) if type(hard)!=str else f"'{hard}'",
                     line)
             h.write(line)
 
-# %% ../nbs/generic.ipynb 14
+# %% ../nbs/generic.ipynb 15
 def split_list(li:list,chunks:int):
     "split a list into N chunks"
     le = int(len(li)/(chunks-1))
@@ -49,19 +50,19 @@ def split_list(li:list,chunks:int):
     if res[-1] == []: res.pop()
     return res
 
-# %% ../nbs/generic.ipynb 15
+# %% ../nbs/generic.ipynb 16
 def lmap(func,li:list):
     "map a list with funtion"
     return list(map(func,li))
 
-# %% ../nbs/generic.ipynb 16
+# %% ../nbs/generic.ipynb 17
 def mmap(func,li:list,cpus:int):
     "wrapper of multiprocessing.Pool.map"
-    with multiprocessing.pool(cpus) as pool:
+    with multiprocessing.Pool(cpus) as pool:
         res = pool.map(func,li)
     return res
 
-# %% ../nbs/generic.ipynb 18
+# %% ../nbs/generic.ipynb 19
 def fprint(string:str):
     "wrapper to print with flush"
     print(string,end='\n',flush=True)

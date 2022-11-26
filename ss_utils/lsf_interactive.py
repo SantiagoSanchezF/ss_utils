@@ -215,7 +215,7 @@ class LSF:
             else:
                 if verbose>0:
                     # print(f"",end='\r',flush=True)
-                    print(f"iter: {it}\t{str(summary)}",end='\r',flush=True)
+                    print(f"iter: {it}\t{str(summary)}\t\t\t",end='\r',flush=True)
                 time.sleep(20)
                 it += 1
         return summary
