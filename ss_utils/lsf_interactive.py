@@ -168,11 +168,17 @@ class LSF:
             "queue": queue,
         }
         self.n_jobs = n_jobs
-        os.mkdir(output_dir)
         self.jobs_ = jobs
         self.jobs = {job_name:lsf_job(self.bsub_args, job_name, output_file, args)
             for job_name, output_file, args in self.jobs_
                     }
+        try:
+            os.mkdir(output_dir)
+        except FileExistsError as err:
+            print(err)
+            print("Force gather mode")
+            for _,j in self.jobs.items():
+                j.stat=None
 
     def update(self,read_func=None,loop=False,verbose=1):
         summary_ = {'start'}

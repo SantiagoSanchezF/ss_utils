@@ -21,7 +21,7 @@ def load_pickle(pickle_file):
 # %% ../nbs/generic.ipynb 6
 def dump_pickle(obj,pickle_file,protocol=3):
     "dump an object to pickle file"
-    with open("pickle_file", "wb") as h:
+    with open(pickle_file, "wb") as h:
         pickle.dump(obj, h, protocol=protocol)
 
 # %% ../nbs/generic.ipynb 8
